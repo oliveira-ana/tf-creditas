@@ -20,7 +20,7 @@ autoSimulate.addEventListener("click", function(event){
     let portionValue = parseInt(loanValue / portionQtd);
     let totalLoan = parseInt(portionQtd * portionValue);
     let numberParc = Math.log10((valueParc2-(taxaMensal*loanValue))/valueParc2)/Math.log10(1 + taxaMensal);
-console.log(numberParc);
-    print.innerHTML = portionValue;
-    printTwo.innerHTML = totalLoan;
+    let transformNumber = Math.abs(numberParc).toFixed();
+    console.log(transformNumber);
+    print.innerHTML = transformNumber;
 });
