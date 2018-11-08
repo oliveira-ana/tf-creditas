@@ -4,23 +4,28 @@ exit.addEventListener("click", function(){
 });
 
 let loanInput = document.getElementById("loanValue");
-let portionInput = document.getElementById("portionQtd");
-let autoSimulate = document.getElementById('autoSimulate');
-let valueParc =document.getElementById('value-parc');
+let qPortionInput = document.getElementById("portionQtd");
+let vPortionInput =document.getElementById('value-parc');
+let buttonSimulate = document.getElementById('autoSimulate');
 let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
-let taxaMensal = 0.0149;
+let autoMTax = 0.0149;
+let houseMTax = 0.0115;
 
-    
-autoSimulate.addEventListener("click", function(event){
+
+buttonSimulate.addEventListener("click", function(event){
     event.preventDefault();
     let loanValue = parseInt(loanInput.value);
-    let portionQtd = parseInt(portionInput.value);        
-    let valueParc2 = parseInt(valueParc.value);
-    let portionValue = parseInt(loanValue / portionQtd);
-    let totalLoan = parseInt(portionQtd * portionValue);
-    let numberParc = Math.log10((valueParc2-(taxaMensal*loanValue))/valueParc2)/Math.log10(1 + taxaMensal);
+    let qPortionValue = parseInt(qPortionInput.value);        
+    let vPortionValue = parseInt(vPortionInput.value);
+    let totalLoan = parseInt(qPortionValue * vPortionValue);
+    let numberParc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
     let transformNumber = Math.abs(numberParc).toFixed();
     console.log(transformNumber);
     print.innerHTML = transformNumber;
+
+    let pow =(1 - Math.pow(1.0149, -qPortionValue));
+    let vp = loanValue * (autoMTax/pow);
+    console.log(vp);
+
 });
