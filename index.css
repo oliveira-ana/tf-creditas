@@ -1,11 +1,29 @@
-body{
+*{
     margin: 0;
+    font-family: 'AmpleSoft';
+    text-align: center;
+
 }
 @font-face{
     font-family: 'AmpleSoft';
     src: url("AmpleSoft.otf");
 }
-
-.bla{
-    font-family: 'AmpleSoft';
+nav, footer{
+    text-align: center;
+    height:10vh;
+    background-color: #23e18c;
+    color:#003C3C
 }
+main{
+    min-height: 80vh;
+    color:#003C3C
+}
+.simulate {
+    border: none;
+    color: #003c3c;
+    background-color: #b5ff00;
+    height: 10vh;
+    border-radius: 10px;
+    width: 20vw;
+    font-size: 20px;
+ }
