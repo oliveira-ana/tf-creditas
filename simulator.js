@@ -12,6 +12,7 @@ let autoMTax = 0.0149;
 let houseMTax = 0.0115;
 buttonSimulate.addEventListener("click", function(event){
   event.preventDefault();
+  somenteNumero();
   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);        
   let vPortionValue = parseInt(vPortionInput.value);
@@ -26,3 +27,15 @@ buttonSimulate.addEventListener("click", function(event){
   print3.innerHTML = totalParcelValue.toFixed();
   print4.innerHTML = totalLoan.toFixed();    
 });
+
+function somenteNumero() {
+  let input = document.getElementById('loanValue');
+    if (input !== ""){
+      if (isNaN(input)){
+        alert("Insira somente números!");
+        return;
+      }
+    }
+
+}
+
