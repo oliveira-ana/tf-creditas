@@ -25,4 +25,5 @@ buttonSimulate.addEventListener("click", function(event){
   print2.innerHTML = totalParcelNum;
   print3.innerHTML = totalParcelValue.toFixed();
   print4.innerHTML = totalLoan.toFixed();    
+
 });
