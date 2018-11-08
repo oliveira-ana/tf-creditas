@@ -1,8 +1,11 @@
-@font-face {
-    font-family: ample soft; 
-    src: url("../AmpleSoft.otf");
+body{
+    margin: 0;
+}
+@font-face{
+    font-family: 'AmpleSoft';
+    src: url("AmpleSoft.otf");
 }
 
 .bla{
-    font-family: ample soft;
+    font-family: 'AmpleSoft';
 }
