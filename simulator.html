@@ -10,15 +10,24 @@
 </head>
 <body>
     <nav>
-        <img src="./img/logo_creditas_monocromatica_negativa.png" alt="" width="200px">
+        <img id='logo' src="./img/logo_creditas_monocromatica_negativa.png" alt="" width="200px">
     </nav>
     <main>
-      <form class='main-simulator' action="#">
-          <input type="text" placeholder="De quanto você precisa? ">
-          <input type="text" placeholder="Em quantas parcelas?">
-          <button>Simular</button>
-      </form>
+        <div class='main-simulator'>
+            <form action="#">
+                <div class='card'>
+                    <input class='value-input' type="text" placeholder="De quanto você precisa? ">
+                </div>
+                <div class='card'>
+                    <input class='value-input' type="text" placeholder="Em quantas parcelas?">
+                </div>
+                <div class='card'>
+                        <input class='value-input' type="text" placeholder="Qual o valor das parcelas?">
+                    </div>
+                <button class='simulate'>Simular</button>
+            </form>
+        </div>
     <footer></footer>
-    <script src="app.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
