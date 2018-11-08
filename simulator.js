@@ -36,7 +36,8 @@ buttonSimulate.addEventListener("click", function(event){
   print.innerHTML = transformNumber;
   print2.innerHTML = totalParcelNum;
   print3.innerHTML = totalParcelValue.toFixed();
-  print4.innerHTML = totalLoan.toFixed();
+  print4.innerHTML = totalLoan.toFixed();    
+
 });
 
 function somenteNumero() {
