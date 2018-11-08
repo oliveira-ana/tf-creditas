@@ -5,36 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Creditas</title>
 </head>
 <body>
-    <nav>
-        <img id='logo' src="./img/logo_creditas_monocromatica_negativa.png" alt="" width="200px">
+    <nav class='nav'>
+        <img class='logo-img' id='logo' src="./img/logo_creditas_monocromatica_negativa.png" alt="" width="200px">
     </nav>
-    <main>
-        <form action="#">
-                <div class='card'>
-                    <input id="valor-solicitado" class='value-input' type="text" placeholder="De quanto você precisa? ">
-                </div>
-                <div class='card'>
-                    <input id="n-parcelas" class='value-input' type="text" placeholder="Em quantas parcelas?">
-                </div>
-                <div class='card'>
-                        <input id="v-parcelas" class='value-input' type="text" placeholder="Qual o valor das parcelas?">
-                    <input id="loanValue" class='value-input' type="text" placeholder="De quanto você precisa? ">
-                </div>
-                <div class='card'>
-                    <input id="portionQtd" class='value-input' type="text" placeholder="Em quantas parcelas?">
-                </div>
-                <div class='card'>
-                        <input id='value-parc'class='value-input' type="text" placeholder="Qual o valor das parcelas?">
+    <main>        
+            <div class="col">
+                <div class="card">
+                    <div class="card-content">
+                        <div class='input-field'>
+                            <input id="loanValue" class=' validate' type="text">
+                            <label for="value">De quanto você precisa?</label>
+                        </div>
                     </div>
-                <button id="autoSimulate" class='simulate'>Simular</button>
-            </form>
-            <p id="print"></p>
-            <p id="print2"></p>
+                </div>
+            </div>
+            
+        
+            <div class="col">
+                <div class="card ">
+                    <div class="card-content">
+                        <div class='input-field '>
+                            <input id="portionQtd" class='validate' type="text">
+                            <label for="value">Em quantas parcelas?</label>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+            <div class="col">
+                <div class="card">
+                    <div class="card-content">
+                        <div class='input-field'>
+                            <input id='value-parc' class='validate' type="text">
+                            <label for="value">Qual o valor das parcelas?</label>
+                        </div>
+                    </div>
+                </div>
+        
+        </div>      
+        <button id="autoSimulate" class='simulate'>Simular</button> 
+        <p id="print"></p>
+        <p id="print2"></p>
+        <p id="print3"></p>
+        <p id='print4'></p>    
     <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="simulator.js"></script>
 </body>
 </html>
