@@ -6,27 +6,21 @@ exit.addEventListener("click", function(){
 let loanInput = document.getElementById("loanValue");
 let portionInput = document.getElementById("portionQtd");
 let autoSimulate = document.getElementById('autoSimulate');
+let valueParc =document.getElementById('value-parc');
 let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
+let taxaMensal = 0.0149;
+
     
 autoSimulate.addEventListener("click", function(event){
     event.preventDefault();
-    let loanValue = loanInput.value;
-let portionQtd = portionInput.value;        
-
-    let portionValue = loanValue / portionQtd;
-    let totalLoan = portionQtd * portionValue;
+    let loanValue = parseInt(loanInput.value);
+    let portionQtd = parseInt(portionInput.value);        
+    let valueParc2 = parseInt(valueParc.value);
+    let portionValue = parseInt(loanValue / portionQtd);
+    let totalLoan = parseInt(portionQtd * portionValue);
+    let numberParc = Math.log10((valueParc2-(taxaMensal*loanValue))/valueParc2)/Math.log10(1 + taxaMensal);
+console.log(numberParc);
     print.innerHTML = portionValue;
     printTwo.innerHTML = totalLoan;
 });
-
- function logSec() {
-      valorSolicitado = document.getElementById("loanValue"),
-      valorParcelas = document.getElementById("value-parc"),
-      taxaMensal = 0.0149, //ao mês
-      equalParc = Math.log10((valorParcelas-(taxaMensal*valorSolicitado))/valorParcelas)/Math.log10(1 + taxaMensal),
-      
-  
-    console.log(secEquation);
-  }
-  //      valorDaParcela = equacao * valorFinanciado;
