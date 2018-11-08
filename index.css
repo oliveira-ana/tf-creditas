@@ -1,5 +1,6 @@
 *{
     margin: 0;
+    font-family: 'AmpleSoft';
     text-align: center;
 }
 
@@ -7,19 +8,15 @@
     font-family: 'AmpleSoft';
     src: url('AmpleSoft.otf');
 }
-
-.bla{
-    font-family: 'AmpleSoft';
-}
-
-
-nav, footer {
-    height: 10vh;
+nav, footer{
+    text-align: center;
+    height:10vh;
     background-color: #23e18c;
+    color:#003C3C
 }
-
-main {
+main{
     min-height: 80vh;
+    color:#003C3C
 }
 
 .simulate {
@@ -29,5 +26,6 @@ main {
     height: 10vh;
     border-radius: 10px;
     width: 20vw;
-    font-size: 60px;
-}
+     font-size: 20px;
+ }
+
