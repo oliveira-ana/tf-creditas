@@ -20,3 +20,13 @@ let portionQtd = portionInput.value;
     printTwo.innerHTML = totalLoan;
 });
 
+ function logSec() {
+      valorSolicitado = document.getElementById("loanValue"),
+      valorParcelas = document.getElementById("value-parc"),
+      taxaMensal = 0.0149, //ao mês
+      equalParc = Math.log10((valorParcelas-(taxaMensal*valorSolicitado))/valorParcelas)/Math.log10(1 + taxaMensal),
+      
+  
+    console.log(secEquation);
+  }
+  //      valorDaParcela = equacao * valorFinanciado;
