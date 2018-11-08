@@ -1,3 +1,8 @@
+let exit = document.getElementById('logo');
+exit.addEventListener("click", function(){
+    window.location = 'index.html';
+});
+
 let loanInput = document.getElementById("loanValue");
 let portionInput = document.getElementById("portionQtd");
 let autoSimulate = document.getElementById('autoSimulate');
