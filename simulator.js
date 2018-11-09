@@ -2,13 +2,13 @@ let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
+const autoMTax = 0.0149;
 let loanInput = document.getElementById("loanValue");
 let qPortionInput = document.getElementById("portionQtd");
 let vPortionInput =document.getElementById('value-parc');
 let buttonSimulate = document.getElementById('autoSimulate');
 let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
-let autoMTax = 0.0149;
 
 buttonSimulate.addEventListener("click", function(event){
   event.preventDefault();
