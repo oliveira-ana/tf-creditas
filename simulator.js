@@ -13,6 +13,7 @@ let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
 buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
+
   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);
   let vPortionValue = parseInt(vPortionInput.value);
@@ -37,7 +38,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
       print4.innerHTML = "";
       print5.innerHTML = "";
       print6.innerHTML = "";
-      
+
     } else{
       let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
       let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
@@ -93,13 +94,15 @@ buttonSimulate.addEventListener("click", function simulation(event){
         // ctx.appendChild(myBarChart);
       }
       }
+
     loanInput.value = "";
     qPortionInput.value = "";
     vPortionInput.value = "";
-  });
+});
+
 
 function somenteNumero() {
-  var tecla=(window.event)?event.keyCode:e.which;   
+  var tecla=(window.event)?event.keyCode:e.which;
   if((tecla>47 && tecla<58)) return true;
   else{
     if (tecla==8 || tecla==0) return true;
