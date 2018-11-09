@@ -19,7 +19,6 @@ buttonSimulate.addEventListener("click", function simulation(event){
   let vPortionValue = parseInt(vPortionInput.value);
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
     alert("Todos os campos estão vazios");
-
   } else if (loanValue < 3000){
       alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 3.000,00.");
     }
@@ -44,23 +43,8 @@ buttonSimulate.addEventListener("click", function simulation(event){
         print4.innerHTML = consigTotalLoan.toFixed();
         print5.innerHTML = personalTotalParcelValue.toFixed();
         print6.innerHTML = personalTotalLoan.toFixed();
-        }
-      let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
-      let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
-      const consigTotalLoan = consigTotalParcelValue * qPortionValue;
-
-      let personalPowerCalc =(1 - Math.pow(1.0798, -qPortionValue));
-      let personalTotalParcelValue = loanValue * (personalTax/personalPowerCalc);
-      const personalTotalLoan = personalTotalParcelValue * qPortionValue;
-
-      print.innerHTML = totalParcelValue.toFixed();
-      print2.innerHTML = totalLoan.toFixed();
-      print3.innerHTML = consigTotalParcelValue.toFixed();
-      print4.innerHTML = consigTotalLoan.toFixed();
-      print5.innerHTML = personalTotalParcelValue.toFixed();
-      print6.innerHTML = personalTotalLoan.toFixed();
-    }
-
+      }
+    } 
     if (vPortionInput.value !== "") {
       let numberParCalc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
       let transformNumber = Math.abs(numberParCalc).toFixed();
