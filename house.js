@@ -1,7 +1,8 @@
-const exit = document.getElementById('logo');
+let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
+
 const houseMTax = 0.0115;
 let loanInput = document.getElementById("loanValue");
 let qPortionInput = document.getElementById("portionQtd");
