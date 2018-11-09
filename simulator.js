@@ -15,7 +15,8 @@ let print3 = document.getElementById("print3");
 let print4 = document.getElementById("print4");
 let print5 = document.getElementById("print5");
 let print6 = document.getElementById("print6");
-
+let ctx = document.getElementById("myChart");
+      
 buttonSimulate.addEventListener("click", function(event){
   event.preventDefault();
   let loanValue = parseInt(loanInput.value);
@@ -63,14 +64,24 @@ buttonSimulate.addEventListener("click", function(event){
       let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
       let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
       let personalTotalParcelNum = vPortionValue * personalTransformNumber;
-     
+         
+      let myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
+         
+      });
+
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
       print3.innerHTML = consigTransformNumber;
       print4.innerHTML = consigTotalParcelNum;
       print5.innerHTML = personalTransformNumber;
       print6.innerHTML = personalTotalParcelNum;
+      ctx.appendChild(myBarChart);
     }
+   
+    
 });
+
 
 
