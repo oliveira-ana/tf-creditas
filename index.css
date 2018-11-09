@@ -9,26 +9,29 @@
     font-family: 'AmpleSoft';
     src: url('AmpleSoft.otf');
 }
+
 .nav{
     background-color: #23e18c;
-}
-
-nav{
     text-align: center;
     height:10vh;
     background-color: #23e18c;
     color:#003C3C;
 }
 
-#logo-loading {
+/* nav{
+    text-align: center;
+    height:10vh;
+    background-color: #23e18c;
+    color:#003C3C;
+} */
+
+/* #logo-loading {
     width: 100%;
     position: absolute;
     height: 100vh;
     background-image: url('./img/foto-16.jpg');
     background-size: cover;
     color: #fff;
-    /* background-position: bottom;
-    background-color: #23E18C; */
     z-index: 9;
 }
 
@@ -41,7 +44,7 @@ nav{
 
   .slogan{
       background-color: #23e18c;
-  }
+  } */
 
 #main-content {
     padding-top: 20px;
@@ -56,11 +59,12 @@ nav{
     padding: 0px 20px;
     font-size: 20px;
     margin-bottom: 5px;
+    /* width: 32%;  */
  }
-
+/* 
  main{
      min-height: 80vh;
- }
+ } */
 
 h1 {
     padding-top: 5vh;
@@ -78,8 +82,33 @@ h1 {
     font-weight: bold;
 }
 
-#chart {
-  min-width: 320px;
-  max-width: 600px;
-  margin: 0 auto;
+#option {
+    position: relative;    
 }
+
+#option p {
+   margin: 0;
+   position: absolute;
+   
+   left: 103%;
+   margin-right: -50%;
+   transform: translate(-50%);
+   border-radius: 50%;
+   background-color: #23e18c;
+   color: #fff;
+   padding: 15px;
+   z-index: 1;
+   bottom: 138%;
+}
+
+    /* .center-align {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } */
+
+    #graphic {
+        height: 100px;
+        width: auto;
+    }
