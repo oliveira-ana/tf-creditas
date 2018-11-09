@@ -101,14 +101,8 @@ h1 {
    bottom: 138%;
 }
 
-    /* .center-align {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 
-    #graphic {
-        height: 100px;
-        width: auto;
+    #chart {
+        height: 300px;
+        width: 500px;
     }

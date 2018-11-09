@@ -36,12 +36,12 @@ buttonSimulate.addEventListener("click", function simulation(event){
       let personalPowerCalc =(1 - Math.pow(1.0798, -qPortionValue));
       let personalTotalParcelValue = loanValue * (personalTax/personalPowerCalc);
       let personalTotalLoan = personalTotalParcelValue * qPortionValue;
-      print.innerHTML = totalParcelValue.toFixed();
-      print2.innerHTML = totalLoan.toFixed();
-      print3.innerHTML = consigTotalParcelValue.toFixed();
-      print4.innerHTML = consigTotalLoan.toFixed();
-      print5.innerHTML = personalTotalParcelValue.toFixed();
-      print6.innerHTML = personalTotalLoan.toFixed();
+      print.innerHTML = 'Parcela Creditas de '+ totalParcelValue.toFixed();
+      print2.innerHTML = 'Valor Total do Empréstimo '+ totalLoan.toFixed();
+      print3.innerHTML = 'Parcela Do Consignado ' + consigTotalParcelValue.toFixed();
+      print4.innerHTML = 'Valor Total do Consignado ' + consigTotalLoan.toFixed();
+      print5.innerHTML = 'Valor da Parcela Crédito Pessoal ' + personalTotalParcelValue.toFixed();
+      print6.innerHTML = 'Valor Total do Crédito Pessoal '+ personalTotalLoan.toFixed();
       var chart = Highcharts.chart('chart', {
         title: {
           text: 'Chart.update'
@@ -93,12 +93,12 @@ buttonSimulate.addEventListener("click", function simulation(event){
           showInLegend: false
         }]
       });
-      print.innerHTML = transformNumber;
-      print2.innerHTML = totalParcelNum;
-      print3.innerHTML = consigTransformNumber;
-      print4.innerHTML = consigTotalParcelNum;
-      print5.innerHTML = personalTransformNumber;
-      print6.innerHTML = personalTotalParcelNum;
+      print.innerHTML =  'Parcela Creditas de ' + transformNumber;
+      print2.innerHTML = 'Valor Total do Empréstimo '+ totalParcelNum;
+      print3.innerHTML = 'Parcela Do Consignado ' + consigTransformNumber;
+      print4.innerHTML = 'Valor da Parcela Crédito Pessoal ' + consigTotalParcelNum;
+      print5.innerHTML = 'Valor da Parcela Crédito Pessoal ' + personalTransformNumber;
+      print6.innerHTML = 'Valor Total do Crédito Pessoal '+  personalTotalParcelNum;
     }
   }
   clearAllInputs()
