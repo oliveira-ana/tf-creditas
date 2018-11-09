@@ -19,9 +19,25 @@ nav{
     height:10vh;
     background-color: #23e18c;
     color:#003C3C;
-   
-
 }
+
+#logo-loading {
+    width: 100%;
+    position: fixed;
+    height: 100vh;
+    background-size: 101%;
+    background-position: bottom;
+    background-color: #23E18C;
+    z-index: 9;
+}
+
+.logo-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 #main-content {
     padding-top: 20px;
 }
@@ -34,7 +50,7 @@ nav{
     border-radius: 30px;
     padding: 0px 20px;
     font-size: 20px;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
  }
 
  main{
@@ -61,4 +77,3 @@ h1 {
     color: #003c3c;
     font-weight: bold;
 }
-
