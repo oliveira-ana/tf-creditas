@@ -61,22 +61,24 @@ buttonSimulate.addEventListener("click", function simulation(event){
         //   type: 'line',
         //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
         // });
-      print.innerHTML = transformNumber;
-      print2.innerHTML = totalParcelNum;
-      print3.innerHTML = consigTransformNumber;
-      print4.innerHTML = consigTotalParcelNum;
-      print5.innerHTML = personalTransformNumber;
-      print6.innerHTML = personalTotalParcelNum;
-      // ctx.appendChild(myBarChart);
-    }
-  }
+
+        print.innerHTML = transformNumber;
+        print2.innerHTML = totalParcelNum;
+        print3.innerHTML = consigTransformNumber;
+        print4.innerHTML = consigTotalParcelNum;
+        print5.innerHTML = personalTransformNumber;
+        print6.innerHTML = personalTotalParcelNum;
+        // ctx.appendChild(myBarChart);
+      }
+      }
+       
 });
-// function somenteNumero() {
-//   let input = document.getElementsByClassName('validate');
-//     if (input.value !== ""){
-//       if (isNaN(input.value)){
-//         alert("Insira somente números!");
-//         return;
-//       }
-//     }
-// }
+
+function somenteNumero() {
+  var tecla=(window.event)?event.keyCode:e.which;   
+  if((tecla>47 && tecla<58)) return true;
+  else{
+    if (tecla==8 || tecla==0) return true;
+else  return false;
+  }
+}
