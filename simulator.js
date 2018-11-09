@@ -84,12 +84,12 @@ buttonSimulate.addEventListener("click", function simulation(event){
         //   type: 'line',
         //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
         // });
-        print.innerHTML = transformNumber;
-        print2.innerHTML = totalParcelNum;
-        print3.innerHTML = consigTransformNumber;
-        print4.innerHTML = consigTotalParcelNum;
-        print5.innerHTML = personalTransformNumber;
-        print6.innerHTML = personalTotalParcelNum;
+      print.innerHTML = transformNumber;
+      print2.innerHTML = totalParcelNum;
+      print3.innerHTML = consigTransformNumber;
+      print4.innerHTML = consigTotalParcelNum;
+      print5.innerHTML = personalTransformNumber;
+      print6.innerHTML = personalTotalParcelNum;
         // ctx.appendChild(myBarChart);
       }
       }
