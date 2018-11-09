@@ -14,7 +14,7 @@
     background-color: #23e18c;
 }
 
-nav, footer{
+nav{
     text-align: center;
     height:10vh;
     background-color: #23e18c;
@@ -23,7 +23,7 @@ nav, footer{
 
 }
 #main-content {
-    padding-top: 5px;
+    padding-top: 20px;
 }
 
 .simulate {
