@@ -23,19 +23,25 @@ nav{
 
 #logo-loading {
     width: 100%;
-    position: fixed;
+    position: absolute;
     height: 100vh;
-    background-size: 101%;
-    background-position: bottom;
-    background-color: #23E18C;
+    background-image: url('./img/foto-16.jpg');
+    background-size: cover;
+    color: #fff;
+    /* background-position: bottom;
+    background-color: #23E18C; */
     z-index: 9;
 }
 
 .logo-wrap {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+  }
+
+  .slogan{
+      background-color: #23e18c;
   }
 
 #main-content {

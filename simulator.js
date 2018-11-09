@@ -2,7 +2,13 @@ let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
+<<<<<<< HEAD
 const autoMTax = 0.0149;
+=======
+
+
+// const autoMTax = 0.0149;
+>>>>>>> 9e154fe5a14c8be149d6a6c413c8bea7f8cde8b0
 const consigTax = 0.0274;
 const personalTax = 0.0798;
 let loanInput = document.getElementById("loanValue");
@@ -19,6 +25,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
   let vPortionValue = parseInt(vPortionInput.value);
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
     alert("Todos os campos estão vazios");
+  
   } else if (loanValue < 3000){
       alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 3.000,00.");
     }
@@ -28,7 +35,23 @@ buttonSimulate.addEventListener("click", function simulation(event){
       const totalLoan = totalParcelValue * qPortionValue;
       if (qPortionValue < 12 || qPortionValue > 60) {
         alert("Você pode escolher pagar de 12 a 60 parcelas, nesta modalidade.");
+      } else{
+        let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
+        let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
+        let consigTotalLoan = consigTotalParcelValue * qPortionValue;
+        
+        let personalPowerCalc =(1 - Math.pow(1.0798, -qPortionValue));
+        let personalTotalParcelValue = loanValue * (personalTax/personalPowerCalc);
+        let personalTotalLoan = personalTotalParcelValue * qPortionValue;
+        
+        print.innerHTML = totalParcelValue.toFixed();
+        print2.innerHTML = totalLoan.toFixed();    
+        print3.innerHTML = consigTotalParcelValue.toFixed();
+        print4.innerHTML = consigTotalLoan.toFixed();
+        print5.innerHTML = personalTotalParcelValue.toFixed();
+        print6.innerHTML = personalTotalLoan.toFixed();
       }
+<<<<<<< HEAD
       let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
       let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
       const consigTotalLoan = consigTotalParcelValue * qPortionValue;
@@ -45,13 +68,41 @@ buttonSimulate.addEventListener("click", function simulation(event){
       print6.innerHTML = personalTotalLoan.toFixed();
 
     }
+=======
+      
+    } 
+>>>>>>> 9e154fe5a14c8be149d6a6c413c8bea7f8cde8b0
     if (vPortionInput.value !== "") {
       let numberParCalc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
       let transformNumber = Math.abs(numberParCalc).toFixed();
       let totalParcelNum = vPortionValue * transformNumber;
-      if(transformNumber < 12 || transformNumber > 60) {
+      if(transformNumber < 275) {
         alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
+      } else{
+        let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
+        let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
+        let consigTotalParcelNum = vPortionValue * consigTransformNumber;
+        
+        let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
+        let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
+        let personalTotalParcelNum = vPortionValue * personalTransformNumber;
+           
+        // let myBarChart = new Chart(ctx, {
+        //   type: 'line',
+        //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
+           
+        // });
+  
+        print.innerHTML = transformNumber;
+        print2.innerHTML = totalParcelNum;
+        print3.innerHTML = consigTransformNumber;
+        print4.innerHTML = consigTotalParcelNum;
+        print5.innerHTML = personalTransformNumber;
+        print6.innerHTML = personalTotalParcelNum;
+        // ctx.appendChild(myBarChart);
       }
+      }
+<<<<<<< HEAD
       let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
       let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
       let consigTotalParcelNum = vPortionValue * consigTransformNumber;
@@ -86,6 +137,10 @@ buttonSimulate.addEventListener("click", function simulation(event){
     }
 
 
+=======
+   
+    
+>>>>>>> 9e154fe5a14c8be149d6a6c413c8bea7f8cde8b0
 });
 
 function somenteNumero() {
