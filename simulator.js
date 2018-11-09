@@ -28,6 +28,16 @@ buttonSimulate.addEventListener("click", function simulation(event){
     const totalLoan = totalParcelValue * qPortionValue;
     if (qPortionValue < 12 || qPortionValue > 60) {
       alert("Você pode escolher pagar de 12 a 60 parcelas, nesta modalidade.");
+      loanInput.value = "";
+      qPortionInput.value = "";
+      vPortionInput.value = "";
+      print.innerHTML = "";
+      print2.innerHTML = "";
+      print3.innerHTML = "";
+      print4.innerHTML = "";
+      print5.innerHTML = "";
+      print6.innerHTML = "";
+      
     } else{
       let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
       let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
@@ -41,6 +51,10 @@ buttonSimulate.addEventListener("click", function simulation(event){
       print4.innerHTML = consigTotalLoan.toFixed();
       print5.innerHTML = personalTotalParcelValue.toFixed();
       print6.innerHTML = personalTotalLoan.toFixed();
+      // clear input
+      loanInput.value = "";
+      qPortionInput.value = "";
+      vPortionInput.value = "";
     }
   } 
   // formula 2 e 3
@@ -50,6 +64,15 @@ buttonSimulate.addEventListener("click", function simulation(event){
     let totalParcelNum = vPortionValue * transformNumber;
     if(transformNumber < 275) {
       alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
+      loanInput.value = "";
+      qPortionInput.value = "";
+      vPortionInput.value = "";
+      print.innerHTML = "";
+      print2.innerHTML = "";
+      print3.innerHTML = "";
+      print4.innerHTML = "";
+      print5.innerHTML = "";
+      print6.innerHTML = "";
     } else{
       let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
       let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
@@ -61,7 +84,6 @@ buttonSimulate.addEventListener("click", function simulation(event){
         //   type: 'line',
         //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
         // });
-
         print.innerHTML = transformNumber;
         print2.innerHTML = totalParcelNum;
         print3.innerHTML = consigTransformNumber;
@@ -71,8 +93,10 @@ buttonSimulate.addEventListener("click", function simulation(event){
         // ctx.appendChild(myBarChart);
       }
       }
-       
-});
+    loanInput.value = "";
+    qPortionInput.value = "";
+    vPortionInput.value = "";
+  });
 
 function somenteNumero() {
   var tecla=(window.event)?event.keyCode:e.which;   
