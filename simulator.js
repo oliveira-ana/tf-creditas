@@ -13,7 +13,7 @@ let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
 buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
-  let loanValue = parseInt(loanInput.value);
+   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);
   let vPortionValue = parseInt(vPortionInput.value);
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
@@ -61,6 +61,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
         //   type: 'line',
         //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
         // });
+<<<<<<< HEAD
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
       print3.innerHTML = consigTransformNumber;
@@ -83,3 +84,26 @@ buttonSimulate.addEventListener("click", function simulation(event){
 //       }
 //     }
 // }
+=======
+
+        print.innerHTML = transformNumber;
+        print2.innerHTML = totalParcelNum;
+        print3.innerHTML = consigTransformNumber;
+        print4.innerHTML = consigTotalParcelNum;
+        print5.innerHTML = personalTransformNumber;
+        print6.innerHTML = personalTotalParcelNum;
+        // ctx.appendChild(myBarChart);
+      }
+      }
+       
+});
+
+function somenteNumero() {
+  var tecla=(window.event)?event.keyCode:e.which;   
+  if((tecla>47 && tecla<58)) return true;
+  else{
+    if (tecla==8 || tecla==0) return true;
+else  return false;
+  }
+}
+>>>>>>> ee45c2ed53342d683ecc33f8c135121a56cc90fe
