@@ -10,7 +10,7 @@ let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
 let autoMTax = 0.0149;
 let houseMTax = 0.0115;
-buttonSimulate.addEventListener("click", function(event){
+buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
   somenteNumero();
   let loanValue = parseInt(loanInput.value);
@@ -40,9 +40,9 @@ buttonSimulate.addEventListener("click", function(event){
 });
 
 function somenteNumero() {
-  let input = document.getElementById('loanValue');
-    if (input !== ""){
-      if (isNaN(input)){
+  let input = document.getElementsByClassName('validate');
+    if (input.value !== ""){
+      if (isNaN(input.value)){
         alert("Insira somente números!");
         return;
       }
