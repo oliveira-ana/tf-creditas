@@ -76,11 +76,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
         let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
         let personalTotalParcelNum = vPortionValue * personalTransformNumber;
 
-        // let myBarChart = new Chart(ctx, {
-        //   type: 'line',
-        //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
 
-        // });
 
         print.innerHTML = transformNumber;
         print2.innerHTML = totalParcelNum;
@@ -88,7 +84,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
         print4.innerHTML = consigTotalParcelNum;
         print5.innerHTML = personalTransformNumber;
         print6.innerHTML = personalTotalParcelNum;
-        // ctx.appendChild(myBarChart);
+
       }
       }
 
@@ -99,30 +95,14 @@ buttonSimulate.addEventListener("click", function simulation(event){
       let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
       let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
       let personalTotalParcelNum = vPortionValue * personalTransformNumber;
-
-
-      const myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: [{x:'Creditas', y:totalLoan}, {x:'Empréstimo Consignado', y:consigTotalLoan}, {x:'Empréstimo Pessoal', y:personalTotalLoan}],
-        options: options
-      });
-
-      // grafico();
-      // function grafico() {
-      //   let ctx = document.getElementById("myChart").getContext("2d");
-      //   let myBarChart = new Chart(ctx, {
-      //     type: 'bar',
-      //     data: [{x:'Creditas', y:totalLoan}, {x:'Empréstimo Consignado', y:consigTotalLoan}, {x:'Empréstimo Pessoal', y:personalTotalLoan}]
-      //   });
-      // }
-
+      
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
       print3.innerHTML = consigTransformNumber;
       print4.innerHTML = consigTotalParcelNum;
       print5.innerHTML = personalTransformNumber;
       print6.innerHTML = personalTotalParcelNum;
-      // ctx.appendChild(myBarChart);
+
     }
 
 });
