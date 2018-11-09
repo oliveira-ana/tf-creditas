@@ -22,10 +22,10 @@ nav{
 }
 
 #logo-loading {
-    /* width: 100%;
+    width: 100%;
     position: fixed;
     height: 100vh;
-    background-size: 101%; */
+    background-size: 101%;
     background-position: bottom;
     background-color: #23E18C;
     z-index: 9;
