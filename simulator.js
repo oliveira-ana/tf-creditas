@@ -63,12 +63,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
       let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
       let personalTotalParcelNum = vPortionValue * personalTransformNumber;
          
-      let myBarChart = new Chart(ctx, {
-        type: 'line',
-        data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
-         
-      });
-
+    
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
       print3.innerHTML = consigTransformNumber;
