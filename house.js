@@ -66,7 +66,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
     let numberParCalc = Math.log10((vPortionValue-(houseMTax*loanValue))/vPortionValue)/Math.log10(1 + houseMTax);
     let transformNumber = Math.abs(numberParCalc).toFixed();
     let totalParcelNum = vPortionValue * transformNumber;
-    if(transformNumber > 2750) {
+    if(transformNumber > 695) {
       alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
       clearAllInputs();
     } else{
@@ -113,6 +113,6 @@ else  return false;
 }
 function clearAllInputs() {
   loanInput.value = "";
-    qPortionInput.value = "";
-    vPortionInput.value = "";
+  qPortionInput.value = "";
+  vPortionInput.value = "";
 }
