@@ -61,30 +61,6 @@ buttonSimulate.addEventListener("click", function simulation(event){
         //   type: 'line',
         //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
         // });
-<<<<<<< HEAD
-      print.innerHTML = transformNumber;
-      print2.innerHTML = totalParcelNum;
-      print3.innerHTML = consigTransformNumber;
-      print4.innerHTML = consigTotalParcelNum;
-      print5.innerHTML = personalTransformNumber;
-      print6.innerHTML = personalTotalParcelNum;
-      // ctx.appendChild(myBarChart);
-    }
-  }
-  loanValue = "";
-  // qPortionValue = "";
-  // vPortionValue = "";
-});
-// function somenteNumero() {
-//   let input = document.getElementsByClassName('validate');
-//     if (input.value !== ""){
-//       if (isNaN(input.value)){
-//         alert("Insira somente números!");
-//         return;
-//       }
-//     }
-// }
-=======
 
         print.innerHTML = transformNumber;
         print2.innerHTML = totalParcelNum;
@@ -106,4 +82,3 @@ function somenteNumero() {
 else  return false;
   }
 }
->>>>>>> ee45c2ed53342d683ecc33f8c135121a56cc90fe
