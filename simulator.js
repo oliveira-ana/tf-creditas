@@ -55,7 +55,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
             data: [totalLoan, consigTotalLoan, personalTotalLoan],
             showInLegend: false
           }]
-        });
+        }); 
 
         print.innerHTML = totalParcelValue.toFixed();
         print2.innerHTML = totalLoan.toFixed();
