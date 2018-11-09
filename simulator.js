@@ -13,7 +13,6 @@ let print = document.getElementById("print");
 let printTwo = document.getElementById("print2");
 buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
-
   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);
   let vPortionValue = parseInt(vPortionInput.value);
