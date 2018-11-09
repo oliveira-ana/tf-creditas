@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 @font-face{
     font-family: 'AmpleSoft';
     src: url('AmpleSoft.otf');
@@ -13,7 +14,7 @@
     background-color: #23e18c;
 }
 
-nav, footer{
+nav{
     text-align: center;
     height:10vh;
     background-color: #23e18c;
@@ -21,8 +22,8 @@ nav, footer{
    
 
 }
-.legal {
-    margin-top: 30px;
+#main-content {
+    padding-top: 20px;
 }
 
 .simulate {
@@ -31,11 +32,11 @@ nav, footer{
     background-color: #b5ff00;
     height: 35px;
     border-radius: 30px;
-    width: 20vw;
+    padding: 0px 20px;
     font-size: 20px;
-    margin-bottom: 5px;
-  
+    margin-bottom: 5px; 
  }
+
  main{
      min-height: 80vh;
  }
@@ -54,30 +55,10 @@ h1 {
     width: 200px;
 }
 
-@media screen and (max-width: 500px) {
-    .logo-img{
-        width: 150px;
-    }
-
-    h1{
-        font-size: 20px;
-    }
-
-    .car {
-        height: 250px;
-        width: auto;
-    }
-
-    .simulate {
-        height: 10vh;
-        border-radius: 10px;
-        width: 30vw;
-         font-size: 20px;
-     }
-
-     .value-input {
-       
-        width: 70vw;
-    }
-    
+.informative {
+    padding: 10px;
+    font-size: 12px;
+    color: #003c3c;
+    font-weight: bold;
 }
+
