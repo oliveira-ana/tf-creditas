@@ -5,22 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <title>Creditas</title>
 </head>
 <body>
-    <nav>
-        <img class='logo-img' src="./img/logo_creditas_monocromatica_negativa.png" alt="">
+    <nav class='nav'>
+        <img class='logo-img' id='logo' src="./img/logo_creditas_monocromatica_negativa.png" alt="" width="200px">
     </nav>
     <main>
-        <div>
-            <h1> Empréstimo com garantia de veículo</h1>
-            <div>
-                <img class='car' src='./img/01-icones-full (1).png'>
+        <div class="row" id='main-content'>
+            <div class="col s2 m3 offset-m3">
+                <div class="card">
+                    <div id='logo1' class="card-image">
+                        <img src="./img/01-icones-full(2).png">
+                    </div>
+                    <div class="card-content">
+                        <p>Empréstimo com garantia de veículo.</p>
+                    </div>
+                    <div class="card-action">
+                        <button id='btn' class='simulate'>Simular</button>
+                    </div>
+                </div>
             </div>
-            <button id='btn' class='simulate'>Simular</button>
+            <div class="col m3 ">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="./img/casa.png">
+                    </div>
+                    <div class="card-content">
+                        <p>Empréstimo com garantia de imóvel.</p>
+                    </div>
+                    <div class="card-action">
+                        <button id='btn2' class='simulate'>Simular</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+    <footer></footer>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="app.js"></script>
     <script src="index.js"></script>

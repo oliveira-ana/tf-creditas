@@ -6,7 +6,5 @@ let secEquation = function () {
       numeroParcelas = equacao;
     console.log(equacao);
     // valorDaParcela = equacao * valorFinanciado;
-
-  
 }
 
