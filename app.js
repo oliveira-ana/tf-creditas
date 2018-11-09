@@ -1,12 +1,13 @@
-$(document).ready(function() {
 
-    $("body").hide().delay(1990).show();
-      $( "#logo-loading" ).delay(2000).animate({
-        height: "273px",
-      }, 900, function() {
-        $(this).fadeOut("fast");
-      });
-    });
+// $(document).ready(function() {
+
+//     $("body").hide().delay(1990).show();
+//       $( "#logo-loading" ).delay(2000).animate({
+//         height: "273px",
+//       }, 1000, function() {
+//         $(this).fadeOut("fast");
+//       });
+//     });
 
 let simulateBtn = document.getElementById('btn');
 simulateBtn.addEventListener("click", function(){
