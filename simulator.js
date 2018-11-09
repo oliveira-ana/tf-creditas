@@ -28,16 +28,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
     const totalLoan = totalParcelValue * qPortionValue;
     if (qPortionValue < 12 || qPortionValue > 60) {
       alert("Você pode escolher pagar de 12 a 60 parcelas, nesta modalidade.");
-      loanInput.value = "";
-      qPortionInput.value = "";
-      vPortionInput.value = "";
-      print.innerHTML = "";
-      print2.innerHTML = "";
-      print3.innerHTML = "";
-      print4.innerHTML = "";
-      print5.innerHTML = "";
-      print6.innerHTML = "";
-
+      clearAllInputs();
     } else{
       let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
       let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
@@ -51,10 +42,23 @@ buttonSimulate.addEventListener("click", function simulation(event){
       print4.innerHTML = consigTotalLoan.toFixed();
       print5.innerHTML = personalTotalParcelValue.toFixed();
       print6.innerHTML = personalTotalLoan.toFixed();
-      // clear input
-      loanInput.value = "";
-      qPortionInput.value = "";
-      vPortionInput.value = "";
+      var chart = Highcharts.chart('chart', {
+        title: {
+          text: 'Chart.update'
+        },
+        subtitle: {
+          text: 'Plain'
+        },
+        xAxis: {
+          categories: ['Creditas', 'Crédito Consignado', 'Crédito Pessoal']
+        },
+        series: [{
+          type: 'column',
+          colorByPoint: true,
+          data: [totalLoan, consigTotalLoan, personalTotalLoan],
+          showInLegend: false
+        }]
+      });
     }
   } 
   // formula 2 e 3
@@ -62,17 +66,9 @@ buttonSimulate.addEventListener("click", function simulation(event){
     let numberParCalc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
     let transformNumber = Math.abs(numberParCalc).toFixed();
     let totalParcelNum = vPortionValue * transformNumber;
-    if(transformNumber < 275) {
+    if(transformNumber > 275) {
       alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
-      loanInput.value = "";
-      qPortionInput.value = "";
-      vPortionInput.value = "";
-      print.innerHTML = "";
-      print2.innerHTML = "";
-      print3.innerHTML = "";
-      print4.innerHTML = "";
-      print5.innerHTML = "";
-      print6.innerHTML = "";
+      clearAllInputs();
     } else{
       let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
       let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
@@ -80,26 +76,33 @@ buttonSimulate.addEventListener("click", function simulation(event){
       let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
       let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
       let personalTotalParcelNum = vPortionValue * personalTransformNumber;
-      // let myBarChart = new Chart(ctx, {
-        //   type: 'line',
-        //   data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
-        // });
+      var chart = Highcharts.chart('chart', {
+        title: {
+          text: 'Chart.update'
+        },
+        subtitle: {
+          text: 'Plain'
+        },
+        xAxis: {
+          categories: ['Creditas', 'Crédito Consignado', 'Crédito Pessoal']
+        },
+        series: [{
+          type: 'column',
+          colorByPoint: true,
+          data: [totalParcelNum, consigTotalParcelNum, personalTotalParcelNum],
+          showInLegend: false
+        }]
+      });
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
       print3.innerHTML = consigTransformNumber;
       print4.innerHTML = consigTotalParcelNum;
       print5.innerHTML = personalTransformNumber;
       print6.innerHTML = personalTotalParcelNum;
-        // ctx.appendChild(myBarChart);
-      }
-      }
-
-    loanInput.value = "";
-    qPortionInput.value = "";
-    vPortionInput.value = "";
+    }
+  }
+  clearAllInputs()
 });
-
-
 function somenteNumero() {
   var tecla=(window.event)?event.keyCode:e.which;
   if((tecla>47 && tecla<58)) return true;
@@ -107,4 +110,9 @@ function somenteNumero() {
     if (tecla==8 || tecla==0) return true;
 else  return false;
   }
+}
+function clearAllInputs() {
+  loanInput.value = "";
+    qPortionInput.value = "";
+    vPortionInput.value = "";
 }
