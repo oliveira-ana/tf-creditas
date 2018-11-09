@@ -14,7 +14,7 @@ let printTwo = document.getElementById("print2");
 
 buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
-  let loanValue = parseInt(loanInput.value);
+   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);
   let vPortionValue = parseInt(vPortionInput.value);
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
@@ -77,14 +77,14 @@ buttonSimulate.addEventListener("click", function simulation(event){
         // ctx.appendChild(myBarChart);
       }
       }
+       
 });
 
-// function somenteNumero() {
-//   let input = document.getElementsByClassName('validate');
-//     if (input.value !== ""){
-//       if (isNaN(input.value)){
-//         alert("Insira somente números!");
-//         return;
-//       }
-//     }
-// }
+function somenteNumero() {
+  if ((event.keyCode<44)||(event.keyCode>57)){
+    if ((event.keyCode<96)||(event.keyCode>106)){
+       alert("Somente números são permitidos");
+       event.returnValue = false; 
+    }
+  }
+}
