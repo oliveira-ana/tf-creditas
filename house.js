@@ -1,4 +1,4 @@
-const exit = document.getElementById('logo');
+let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
