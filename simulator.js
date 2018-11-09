@@ -22,6 +22,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
   } else if (loanValue < 3000){
       alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 3.000,00.");
     }
+    // formula 1 e 3
     if (qPortionInput.value !== "") {
       let powerCalc =(1 - Math.pow(1.0149, -qPortionValue));
       let totalParcelValue = loanValue * (autoMTax/powerCalc);
@@ -45,6 +46,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
         print6.innerHTML = personalTotalLoan.toFixed();
       }
     } 
+    // formula 2 e 3
     if (vPortionInput.value !== "") {
       let numberParCalc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
       let transformNumber = Math.abs(numberParCalc).toFixed();
@@ -75,48 +77,14 @@ buttonSimulate.addEventListener("click", function simulation(event){
         // ctx.appendChild(myBarChart);
       }
       }
-
-      let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
-      let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
-      let consigTotalParcelNum = vPortionValue * consigTransformNumber;
-
-      let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
-      let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
-      let personalTotalParcelNum = vPortionValue * personalTransformNumber;
-
-
-      const myBarChart = new Chart(ctx, {
-        type: 'bar',
-        data: [{x:'Creditas', y:totalLoan}, {x:'Empréstimo Consignado', y:consigTotalLoan}, {x:'Empréstimo Pessoal', y:personalTotalLoan}],
-        options: options
-      });
-
-      // grafico();
-      // function grafico() {
-      //   let ctx = document.getElementById("myChart").getContext("2d");
-      //   let myBarChart = new Chart(ctx, {
-      //     type: 'bar',
-      //     data: [{x:'Creditas', y:totalLoan}, {x:'Empréstimo Consignado', y:consigTotalLoan}, {x:'Empréstimo Pessoal', y:personalTotalLoan}]
-      //   });
-      // }
-
-      print.innerHTML = transformNumber;
-      print2.innerHTML = totalParcelNum;
-      print3.innerHTML = consigTransformNumber;
-      print4.innerHTML = consigTotalParcelNum;
-      print5.innerHTML = personalTransformNumber;
-      print6.innerHTML = personalTotalParcelNum;
-      // ctx.appendChild(myBarChart);
-    }
-
 });
 
-function somenteNumero() {
-  let input = document.getElementsByClassName('validate');
-    if (input.value !== ""){
-      if (isNaN(input.value)){
-        alert("Insira somente números!");
-        return;
-      }
-    }
-}
+// function somenteNumero() {
+//   let input = document.getElementsByClassName('validate');
+//     if (input.value !== ""){
+//       if (isNaN(input.value)){
+//         alert("Insira somente números!");
+//         return;
+//       }
+//     }
+// }
