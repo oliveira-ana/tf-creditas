@@ -81,10 +81,10 @@ buttonSimulate.addEventListener("click", function simulation(event){
 });
 
 function somenteNumero() {
-  if ((event.keyCode<44)||(event.keyCode>57)){
-    if ((event.keyCode<96)||(event.keyCode>106)){
-       alert("Somente números são permitidos");
-       event.returnValue = false; 
-    }
+  var tecla=(window.event)?event.keyCode:e.which;   
+  if((tecla>47 && tecla<58)) return true;
+  else{
+    if (tecla==8 || tecla==0) return true;
+else  return false;
   }
 }
