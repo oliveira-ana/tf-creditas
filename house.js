@@ -1,17 +1,17 @@
 let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
-    window.location = 'index.html';
+  window.location = 'index.html';
 });
-
 const houseMTax = 0.0115;
+const consigTax = 0.0274;
+const personalTax = 0.0798;
 let loanInput = document.getElementById("loanValue");
 let qPortionInput = document.getElementById("portionQtd");
 let vPortionInput =document.getElementById('value-parc');
 let buttonSimulate = document.getElementById('autoSimulate');
 let print = document.getElementById("print");
-let print2 = document.getElementById("print2");
-
-buttonSimulate.addEventListener("click", function(event){
+let printTwo = document.getElementById("print2");
+buttonSimulate.addEventListener("click", function simulation(event){
   event.preventDefault();
   let loanValue = parseInt(loanInput.value);
   let qPortionValue = parseInt(qPortionInput.value);
@@ -19,88 +19,100 @@ buttonSimulate.addEventListener("click", function(event){
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
     alert("Todos os campos estão vazios");
   } else if (loanValue < 30000){
-      alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 30.000,00.");
+    alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 3.000,00.");
+  }
+  // formula 1 e 3
+  if (qPortionInput.value !== "") {
+    let powerCalc =(1 - Math.pow(1.0115, -qPortionValue));
+    let totalParcelValue = loanValue * (houseMTax/powerCalc);
+    const totalLoan = totalParcelValue * qPortionValue;
+    if (qPortionValue < 60 || qPortionValue > 240) {
+      alert("Você pode escolher pagar de 60 a 240 parcelas, nesta modalidade.");
+      clearAllInputs();
+    } else{
+      let consigPowerCalc =(1 - Math.pow(1.0274, -qPortionValue));
+      let consigTotalParcelValue = loanValue * (consigTax/consigPowerCalc);
+      let consigTotalLoan = consigTotalParcelValue * qPortionValue;
+      let personalPowerCalc =(1 - Math.pow(1.0798, -qPortionValue));
+      let personalTotalParcelValue = loanValue * (personalTax/personalPowerCalc);
+      let personalTotalLoan = personalTotalParcelValue * qPortionValue;
+      print.innerHTML = totalParcelValue.toFixed();
+      print2.innerHTML = totalLoan.toFixed();
+      print3.innerHTML = consigTotalParcelValue.toFixed();
+      print4.innerHTML = consigTotalLoan.toFixed();
+      print5.innerHTML = personalTotalParcelValue.toFixed();
+      print6.innerHTML = personalTotalLoan.toFixed();
+      var chart = Highcharts.chart('chart', {
+        title: {
+          text: 'Chart.update'
+        },
+        subtitle: {
+          text: 'Plain'
+        },
+        xAxis: {
+          categories: ['Creditas', 'Crédito Consignado', 'Crédito Pessoal']
+        },
+        series: [{
+          type: 'column',
+          colorByPoint: true,
+          data: [totalLoan, consigTotalLoan, personalTotalLoan],
+          showInLegend: false
+        }]
+      });
     }
-    // formula 1
-    if (vPortionInput.value !== "") {
-      
-      let numberParCalc = Math.log10((vPortionValue-(houseMTax*loanValue))/vPortionValue)/Math.log10(1 + houseMTax);
-      let transformNumber = Math.abs(numberParCalc).toFixed();
-      let totalParcelNum = vPortionValue * transformNumber;
-      if(transformNumber < 60 || transformNumber > 240) {
-        alert("Nesta modalidade você pode pagar entre 60 a 240 parcelas, por favor altere o valor a ser pago por mês.");
-      }
+  } 
+  // formula 2 e 3
+  if (vPortionInput.value !== "") {
+    let numberParCalc = Math.log10((vPortionValue-(houseMTax*loanValue))/vPortionValue)/Math.log10(1 + houseMTax);
+    let transformNumber = Math.abs(numberParCalc).toFixed();
+    let totalParcelNum = vPortionValue * transformNumber;
+    if(transformNumber > 695) {
+      alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
+      clearAllInputs();
+    } else{
+      let consigNumberParCalc = Math.log10((vPortionValue-(consigTax*loanValue))/vPortionValue)/Math.log10(1 + consigTax);
+      let consigTransformNumber = Math.abs(consigNumberParCalc).toFixed();
+      let consigTotalParcelNum = vPortionValue * consigTransformNumber;
+      let personalNumberParCalc = Math.log10((vPortionValue-(personalTax*loanValue))/vPortionValue)/Math.log10(1 + personalTax);
+      let personalTransformNumber = Math.abs(personalNumberParCalc).toFixed();
+      let personalTotalParcelNum = vPortionValue * personalTransformNumber;
+      var chart = Highcharts.chart('chart', {
+        title: {
+          text: 'Chart.update'
+        },
+        subtitle: {
+          text: 'Plain'
+        },
+        xAxis: {
+          categories: ['Creditas', 'Crédito Consignado', 'Crédito Pessoal']
+        },
+        series: [{
+          type: 'column',
+          colorByPoint: true,
+          data: [totalParcelNum, consigTotalParcelNum, personalTotalParcelNum],
+          showInLegend: false
+        }]
+      });
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
+      print3.innerHTML = consigTransformNumber;
+      print4.innerHTML = consigTotalParcelNum;
+      print5.innerHTML = personalTransformNumber;
+      print6.innerHTML = personalTotalParcelNum;
     }
-      // formula 2 
-    if (qPortionInput.value !== "") {
-      console.log("oi");
-      let powerCalc =(1 - Math.pow(1.0115, -qPortionValue));
-      let totalParcelValue = loanValue * (houseMTax/powerCalc);
-      let totalLoan = totalParcelValue * qPortionValue;
-      if (qPortionValue < 60 || qPortionValue > 240) {
-        alert("Você pode escolher pagar de 60 a 240 parcelas, nesta modalidade.");
-      }
-      print.innerHTML = totalParcelValue.toFixed();
-      print2.innerHTML = totalLoan.toFixed();    
-     } 
-    
-    
-
-
-
-
+  }
+  clearAllInputs()
 });
-
-// let exit2 = document.getElementById('logo');
-// exit2.addEventListener("click", function(){
-//     window.location = 'index.html';
-// });
-// let loanInput = document.getElementById("loanValue");
-// let qPortionInput = document.getElementById("portionQtd");
-// let vPortionInput =document.getElementById('value-parc');
-// let buttonSimulate = document.getElementById('autoSimulate');
-// let print = document.getElementById("print");
-// let printTwo = document.getElementById("print2");
-// let autoMTax = 0.0115;
-// buttonSimulate.addEventListener("click", function(event){
-//   event.preventDefault();
-//   somenteNumero();
-//   let loanValue = parseInt(loanInput.value);
-//   let qPortionValue = parseInt(qPortionInput.value);
-//   let vPortionValue = parseInt(vPortionInput.value);
-//   let numberParCalc = Math.log10((vPortionValue-(autoMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
-//   let transformNumber = Math.abs(numberParCalc).toFixed();
-//   let totalParcelNum = vPortionValue * transformNumber;
-//   let powerCalc =(1 - Math.pow(1.0115, -qPortionValue));
-//   let totalParcelValue = loanValue * (autoMTax/powerCalc);
-//   let totalLoan = totalParcelValue * qPortionValue;
-//     if (loanValue < 30000){
-//       alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 30.000,00.");
-//     }
-
-//     if (qPortionValue < 60 || qPortionValue > 240) {
-//       alert("Você pode escolher pagar de 60 a 240 parcelas, nesta modalidade.");
-//     }
-
-//     if (transformNumber < 60 || transformNumber > 240) {
-//       alert("Nesta modalidade você pode pagar entre 60 a 240 parcelas, por favor altere o valor a ser pago por mês.");
-//     }
-//   print.innerHTML = transformNumber;
-//   print2.innerHTML = totalParcelNum;
-//   print3.innerHTML = totalParcelValue.toFixed();
-//   print4.innerHTML = totalLoan.toFixed();    
-
-// });
-
-// function somenteNumero() {
-//   let input = document.getElementById('loanValue');
-//     if (input !== ""){
-//       if (isNaN(input)){
-//         alert("Insira somente números!");
-//         return;
-//       }
-//     }
-
-// }
+function somenteNumero() {
+  var tecla=(window.event)?event.keyCode:e.which;
+  if((tecla>47 && tecla<58)) return true;
+  else{
+    if (tecla==8 || tecla==0) return true;
+else  return false;
+  }
+}
+function clearAllInputs() {
+  loanInput.value = "";
+  qPortionInput.value = "";
+  vPortionInput.value = "";
+}

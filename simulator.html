@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class='input-field'>
-                        <input id="loanValue" class=' validate' type="text">
+                        <input  onKeypress="return somenteNumero();" id="loanValue" class=' validate' type="text">
                         <label for="value">De quanto você precisa?</label>
                     </div>
                 </div>
@@ -32,7 +32,7 @@
             <div class="card ">
                 <div class="card-content">
                     <div class='input-field '>
-                        <input id="portionQtd" class='validate' type="text">
+                        <input onKeypress="return somenteNumero();" id="portionQtd" class='validate' type="text">
                         <label for="value">Em quantas parcelas?</label>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class='input-field'>
-                        <input id='value-parc' class='validate' type="text">
+                        <input onKeypress="return somenteNumero();" id='value-parc' class='validate' type="text">
                         <label for="value">Qual o valor das parcelas?</label>
                     </div>
                 </div>
@@ -73,18 +73,17 @@
             
             </div>
             <div class="col l6">
-                <img id='graphic' src="./img/grafico.png" >
+                    <canvas id="myChart" width="400" height="400"></canvas>
             </div>
         </div>
         
-        <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+        
 
-         
-    </main>   
-    
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="simulator.js"></script>
 </body>
 </html>

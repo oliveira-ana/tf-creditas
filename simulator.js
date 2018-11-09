@@ -1,12 +1,8 @@
-
-
 let exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
-
-
-// const autoMTax = 0.0149;
+const autoMTax = 0.0149;
 const consigTax = 0.0274;
 const personalTax = 0.0798;
 let loanInput = document.getElementById("loanValue");
@@ -66,7 +62,7 @@ buttonSimulate.addEventListener("click", function simulation(event){
       let personalTotalParcelNum = vPortionValue * personalTransformNumber;
          
       let myBarChart = new Chart(ctx, {
-        type: 'line',
+        type: 'bar',
         data: [{x:'Creditas', y:transformNumber}, {x:'Consignado', y:consigTransformNumber}]
          
       });
@@ -91,4 +87,3 @@ function somenteNumero() {
         return;
       }
     }
-}
