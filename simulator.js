@@ -5,8 +5,6 @@ exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
 
-
-// const autoMTax = 0.0149;
 const consigTax = 0.0274;
 const personalTax = 0.0798;
 let loanInput = document.getElementById("loanValue");
@@ -72,7 +70,6 @@ buttonSimulate.addEventListener("click", function simulation(event){
       print4.innerHTML = consigTotalParcelNum;
       print5.innerHTML = personalTransformNumber;
       print6.innerHTML = personalTotalParcelNum;
-      ctx.appendChild(myBarChart);
     }
    
     
