@@ -1,14 +1,15 @@
-let exit = document.getElementById('logo');
+const exit = document.getElementById('logo');
 exit.addEventListener("click", function(){
     window.location = 'index.html';
 });
+
 const houseMTax = 0.0115;
 let loanInput = document.getElementById("loanValue");
 let qPortionInput = document.getElementById("portionQtd");
 let vPortionInput =document.getElementById('value-parc');
 let buttonSimulate = document.getElementById('autoSimulate');
 let print = document.getElementById("print");
-let printTwo = document.getElementById("print2");
+let print2 = document.getElementById("print2");
 
 buttonSimulate.addEventListener("click", function(event){
   event.preventDefault();
@@ -18,28 +19,38 @@ buttonSimulate.addEventListener("click", function(event){
   if (loanInput.value === "" && qPortionInput.value === "" && vPortionInput.value === ""){
     alert("Todos os campos estão vazios");
   } else if (loanValue < 30000){
-      alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 3.000,00.");
-    } 
-    if (qPortionInput.value !== "") {
-      let powerCalc =(1 - Math.pow(1.0115, -qPortionValue));
-      let totalParcelValue = loanValue * (houseMTax/powerCalc);
-      let totalLoan = totalParcelValue * qPortionValue;
-      if (qPortionValue < 60 || qPortionValue > 240) {
-        alert("Você pode escolher pagar de 12 a 60 parcelas, nesta modalidade.");
-      }
-      print3.innerHTML = totalParcelValue.toFixed();
-      print4.innerHTML = totalLoan.toFixed();    
-    } 
+      alert("Nesta modalidade o valor mínimo de empréstimo é de R$ 30.000,00.");
+    }
+    // formula 1
     if (vPortionInput.value !== "") {
-      let numberParCalc = Math.log10((vPortionValue-(houseMTax*loanValue))/vPortionValue)/Math.log10(1 + autoMTax);
+      
+      let numberParCalc = Math.log10((vPortionValue-(houseMTax*loanValue))/vPortionValue)/Math.log10(1 + houseMTax);
       let transformNumber = Math.abs(numberParCalc).toFixed();
       let totalParcelNum = vPortionValue * transformNumber;
       if(transformNumber < 60 || transformNumber > 240) {
-        alert("Nesta modalidade você pode pagar entre 12 a 60 parcelas, por favor altere o valor a ser pago por mês.");
+        alert("Nesta modalidade você pode pagar entre 60 a 240 parcelas, por favor altere o valor a ser pago por mês.");
       }
       print.innerHTML = transformNumber;
       print2.innerHTML = totalParcelNum;
     }
+      // formula 2 
+    if (qPortionInput.value !== "") {
+      console.log("oi");
+      let powerCalc =(1 - Math.pow(1.0115, -qPortionValue));
+      let totalParcelValue = loanValue * (houseMTax/powerCalc);
+      let totalLoan = totalParcelValue * qPortionValue;
+      if (qPortionValue < 60 || qPortionValue > 240) {
+        alert("Você pode escolher pagar de 60 a 240 parcelas, nesta modalidade.");
+      }
+      print.innerHTML = totalParcelValue.toFixed();
+      print2.innerHTML = totalLoan.toFixed();    
+     } 
+    
+    
+
+
+
+
 });
 
 // let exit2 = document.getElementById('logo');
